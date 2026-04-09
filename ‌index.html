@@ -1,335 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhargavi Bonthu — AI/ML Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --bg:#f5f2ed;--surface:#fff;--accent:#1D9E75;--accent2:#533AB7;
-    --text:#1a1a1a;--muted:#6b6b6b;--border:#e0dbd3;
-    --tag-ml:#E1F5EE;--tag-ml-t:#085041;
-    --tag-py:#EEEDFE;--tag-py-t:#3C3489;
-    --tag-ds:#FAEEDA;--tag-ds-t:#633806;
-    --tag-aws:#EAF3DE;--tag-aws-t:#27500A;
-    --tag-api:#FAECE7;--tag-api-t:#712B13;
-  }
-  body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+  <meta charset="UTF-8">
+  <title>Bhargavi Bonthu | ML Engineer</title>
 
-  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100}
-  .nav-logo{font-family:'DM Serif Display',serif;font-size:20px;letter-spacing:-0.5px}
-  .nav-links{display:flex;gap:28px;list-style:none}
-  .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:400;letter-spacing:0.3px;transition:color 0.2s}
-  .nav-links a:hover{color:var(--accent)}
-  .nav-cta{font-size:12px;background:var(--accent);color:#fff;padding:8px 18px;border-radius:100px;text-decoration:none;font-weight:500;transition:opacity 0.2s}
-  .nav-cta:hover{opacity:0.85}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
 
-  .hero{padding:80px 40px 70px;max-width:900px;margin:0 auto}
-  .hero-eyebrow{font-size:12px;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
-  .hero-name{font-family:'DM Serif Display',serif;font-size:clamp(48px,7vw,80px);line-height:1.05;letter-spacing:-2px;margin-bottom:8px}
-  .hero-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,44px);color:var(--muted);font-style:italic;line-height:1.2;margin-bottom:28px}
-  .hero-desc{font-size:16px;color:var(--muted);line-height:1.8;max-width:560px;margin-bottom:36px;font-weight:300}
-  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
-  .tag{font-size:11px;font-family:'DM Mono',monospace;padding:5px 12px;border-radius:100px;font-weight:500;letter-spacing:0.5px}
-  .t-ml{background:var(--tag-ml);color:var(--tag-ml-t)}
-  .t-py{background:var(--tag-py);color:var(--tag-py-t)}
-  .t-ds{background:var(--tag-ds);color:var(--tag-ds-t)}
-  .t-aws{background:var(--tag-aws);color:var(--tag-aws-t)}
-  .t-api{background:var(--tag-api);color:var(--tag-api-t)}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-  .btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;transition:opacity 0.2s}
-  .btn-primary:hover{opacity:0.85}
-  .btn-outline{background:transparent;color:var(--text);padding:11px 28px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:400;border:1px solid var(--border);transition:border-color 0.2s}
-  .btn-outline:hover{border-color:var(--text)}
-  .hero-line{width:60px;height:2px;background:var(--accent);margin-bottom:22px;border-radius:2px}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px;
+    }
 
-  section{max-width:900px;margin:0 auto;padding:60px 40px}
-  .section-label{font-size:11px;font-family:'DM Mono',monospace;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,36px);margin-bottom:32px;letter-spacing:-0.5px}
-  .divider{border:none;border-top:1px solid var(--border);max-width:900px;margin:0 40px}
+    h1, h2 {
+      color: #38bdf8;
+    }
 
-  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-  .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;transition:border-color 0.2s}
-  .skill-card:hover{border-color:var(--accent)}
-  .skill-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:18px}
-  .si-teal{background:var(--tag-ml)}
-  .si-purple{background:var(--tag-py)}
-  .si-amber{background:var(--tag-ds)}
-  .si-green{background:var(--tag-aws)}
-  .si-coral{background:var(--tag-api)}
-  .skill-name{font-size:13px;font-weight:500;margin-bottom:6px}
-  .skill-items{font-size:12px;color:var(--muted);line-height:1.7;font-weight:300}
+    h1 {
+      margin-bottom: 5px;
+    }
 
-  .project-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;transition:border-color 0.2s}
-  .project-card:hover{border-color:var(--accent)}
-  .project-badge{font-size:10px;font-family:'DM Mono',monospace;background:var(--tag-ml);color:var(--tag-ml-t);padding:4px 10px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;display:inline-block;margin-bottom:14px}
-  .project-title{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:10px}
-  .project-desc{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:18px;font-weight:300}
-  .project-stack{display:flex;flex-wrap:wrap;gap:6px}
-  .project-link{background:var(--accent);color:#fff;padding:10px 20px;border-radius:100px;text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap;align-self:flex-start;transition:opacity 0.2s}
-  .project-link:hover{opacity:0.85}
-  .project-stat{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-top:6px}
+    .section {
+      margin-bottom: 40px;
+    }
 
-  .companies-intro{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px;font-weight:300;max-width:620px}
-  .company-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-  .company-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;transition:border-color 0.2s}
-  .company-card:hover{border-color:var(--accent2)}
-  .company-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-  .company-avatar{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;flex-shrink:0}
-  .ca-p{background:var(--tag-py);color:var(--tag-py-t)}
-  .ca-t{background:var(--tag-ml);color:var(--tag-ml-t)}
-  .ca-a{background:var(--tag-ds);color:var(--tag-ds-t)}
-  .ca-g{background:var(--tag-aws);color:var(--tag-aws-t)}
-  .ca-m{background:#E6F1FB;color:#0C447C}
-  .ca-f{background:var(--tag-api);color:var(--tag-api-t)}
-  .ca-i{background:#FBEAF0;color:#72243E}
-  .ca-s{background:#E1F5EE;color:#085041}
-  .ca-w{background:#FAEEDA;color:#633806}
-  .company-name{font-size:14px;font-weight:500}
-  .company-role{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:1px}
-  .company-why{font-size:12px;color:var(--muted);line-height:1.65;font-weight:300}
-  .company-match{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
-  .match-pill{font-size:10px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:100px;background:var(--tag-py);color:var(--tag-py-t)}
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
 
-  .contact-box{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center}
-  .contact-title{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:10px}
-  .contact-sub{font-size:15px;color:var(--muted);margin-bottom:28px;font-weight:300}
-  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .contact-btn{padding:11px 24px;border-radius:100px;text-decoration:none;font-size:13px;font-weight:500;border:1px solid var(--border);color:var(--text);transition:all 0.2s}
-  .contact-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-  .contact-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-  .contact-btn.primary:hover{opacity:0.85}
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
 
-  footer{text-align:center;padding:30px 40px;font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;border-top:1px solid var(--border)}
+    a:hover {
+      text-decoration: underline;
+    }
 
-  @media(max-width:600px){
-    nav{padding:16px 20px}.hero{padding:50px 20px 50px}
-    section{padding:48px 20px}.project-card{grid-template-columns:1fr}
-    .project-link{width:fit-content}
-    .nav-links{display:none}
-  }
-</style>
+    ul {
+      padding-left: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #334155;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+  </style>
 </head>
+
 <body>
+<div class="container">
 
-<nav>
-  <div class="nav-logo">BB</div>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#companies">Targets</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="https://www.linkedin.com/in/bhargavi-b-bb6a55219" target="_blank">LinkedIn ↗</a>
-</nav>
+  <!-- HERO -->
+  <h1>Bhargavi Bonthu</h1>
+  <p><b>Machine Learning Engineer | Data Engineer</b></p>
+  <p>
+    Building scalable ML systems, recommendation engines, and data pipelines used in real-world applications.
+  </p>
 
-<section class="hero" id="home" style="padding-bottom:50px">
-  <div class="hero-line"></div>
-  <p class="hero-eyebrow">Available for ML Engineer Roles</p>
-  <h1 class="hero-name">Bhargavi<br>Bonthu</h1>
-  <h2 class="hero-title">AI / ML Engineer</h2>
-  <p class="hero-desc">Machine learning engineer who builds end-to-end ML systems — from data pipelines to deployed APIs. Focused on production-oriented ML, scalable architecture, and real-world impact.</p>
-  <div class="hero-tags">
-    <span class="tag t-ml">Machine Learning</span>
-    <span class="tag t-py">Python</span>
-    <span class="tag t-ds">Data Science</span>
-    <span class="tag t-aws">AWS</span>
-    <span class="tag t-api">FastAPI</span>
-    <span class="tag t-ml">Scikit-learn</span>
-    <span class="tag t-py">SQL</span>
-    <span class="tag t-ds">ETL Pipelines</span>
-    <span class="tag t-aws">Docker</span>
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>About</h2>
+    <p>
+      Machine Learning Engineer with experience in building scalable data pipelines, recommendation systems, and ML workflows.
+      Previously worked at Accenture on production-grade systems involving cloud infrastructure and data engineering.
+    </p>
+
+    <p>
+      Focused on building real-world ML systems beyond models — including deployment, optimization, and system reliability.
+    </p>
+
+    <p>
+      <i>Focused on building production-oriented systems rather than just ML models.</i>
+    </p>
   </div>
-  <div class="hero-actions">
-    <a class="btn-primary" href="https://github.com/BhargaviBonthu" target="_blank">GitHub Profile ↗</a>
-    <a class="btn-outline" href="https://www.linkedin.com/in/bhargavi-b-bb6a55219" target="_blank">LinkedIn</a>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <h2>Projects</h2>
+
+    <!-- Project 1 -->
+    <div class="card">
+      <h3>🎬 Movie Recommendation System</h3>
+
+      <p>
+        Built a collaborative filtering-based recommendation system to simulate real-world personalization systems used in streaming platforms.
+      </p>
+
+      <ul>
+        <li>Implemented cosine similarity on user-item interaction data</li>
+        <li>Designed scalable pipeline for handling large datasets</li>
+        <li>Transformed raw data into structured user-item matrices</li>
+        <li>Improved recommendation relevance through similarity tuning</li>
+      </ul>
+
+      <p><b>Tech:</b> Python, Pandas, NumPy</p>
+
+      <a href="https://github.com/BhargaviBonthu/movie-recommendation-system" target="_blank">
+        View Project →
+      </a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="card">
+      <h3>🤖 Document-Based QA System (RAG)</h3>
+
+      <p>
+        Built a retrieval-based question answering system over document data.
+      </p>
+
+      <ul>
+        <li>Implemented document chunking and semantic search</li>
+        <li>Processed unstructured PDF data into structured chunks</li>
+        <li>Designed retrieval pipeline for context-based answers</li>
+        <li>Simulated core architecture of RAG systems</li>
+      </ul>
+
+      <p><b>Tech:</b> Python, LangChain</p>
+    </div>
+
   </div>
-</section>
 
-<hr class="divider">
+  <!-- SKILLS -->
+  <div class="section">
+    <h2>Skills</h2>
 
-<section id="skills">
-  <p class="section-label">Expertise</p>
-  <h2 class="section-title">Skills & Tech Stack</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-icon si-teal">⚙️</div>
-      <div class="skill-name">Machine Learning</div>
-      <div class="skill-items">Scikit-learn · Pandas · NumPy · Model training & evaluation · Feature engineering · Classification & Regression</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon si-purple">🐍</div>
-      <div class="skill-name">Python & SQL</div>
-      <div class="skill-items">Python (advanced) · SQL · Data wrangling · Query optimization · Scripting & automation</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon si-amber">🔄</div>
-      <div class="skill-name">Data Engineering</div>
-      <div class="skill-items">ETL pipelines · Large-scale data processing · Data cleaning · Pipeline design · Batch processing</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon si-green">☁️</div>
-      <div class="skill-name">Deployment & Cloud</div>
-      <div class="skill-items">AWS · FastAPI · REST APIs · Docker (learning) · Model serving · CI/CD basics</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon si-coral">📊</div>
-      <div class="skill-name">ML Systems Design</div>
-      <div class="skill-items">End-to-end ML pipelines · Experiment tracking · Production deployment · Model evaluation · System architecture</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon si-teal">🛠️</div>
-      <div class="skill-name">Tools & Workflow</div>
-      <div class="skill-items">Git · Jupyter Notebooks · VS Code · GitHub Actions · Agile development</div>
-    </div>
+    <p><b>Languages:</b> Python, SQL</p>
+    <p><b>ML & Data:</b> Pandas, NumPy, Scikit-learn</p>
+    <p><b>Data Engineering:</b> ETL Pipelines, Data Processing</p>
+    <p><b>Cloud:</b> AWS (S3, Lambda, EKS)</p>
+    <p><b>Tools:</b> Git, Docker, Kubernetes</p>
+
   </div>
-</section>
 
-<hr class="divider">
+  <!-- CONTACT -->
+  <div class="section">
+    <h2>Contact</h2>
 
-<section id="projects">
-  <p class="section-label">Work</p>
-  <h2 class="section-title">Featured Project</h2>
-  <div class="project-card">
-    <div>
-      <span class="project-badge">ML · Python · FastAPI</span>
-      <h3 class="project-title">Movie Recommendation System</h3>
-      <p class="project-desc">End-to-end recommendation engine that suggests movies based on user preferences using collaborative and content-based filtering. Built with a production mindset — includes a REST API via FastAPI, modular source code structure, test coverage, and deployment-ready packaging.</p>
-      <div class="project-stack">
-        <span class="tag t-py">Python</span>
-        <span class="tag t-ml">Scikit-learn</span>
-        <span class="tag t-api">FastAPI</span>
-        <span class="tag t-ds">Pandas</span>
-        <span class="tag t-aws">NumPy</span>
-        <span class="tag t-ml">Recommendation ML</span>
-        <span class="tag t-py">REST API</span>
-      </div>
-      <p class="project-stat" style="margin-top:14px">100% Python · app.py + src/ + test.py · production-ready structure</p>
-    </div>
-    <a class="project-link" href="https://github.com/BhargaviBonthu/movie-recommendation-system" target="_blank">View on GitHub ↗</a>
+    <p>Email: bhargavibsn@gmail.com</p>
+
+    <p>
+      GitHub:
+      <a href="https://github.com/BhargaviBonthu" target="_blank">
+        BhargaviBonthu
+      </a>
+    </p>
+
+    <p>
+      LinkedIn:
+      <a href="#" target="_blank">
+        Add your LinkedIn link
+      </a>
+    </p>
+
   </div>
-</section>
 
-<hr class="divider">
-
-<section id="companies">
-  <p class="section-label">Career Targeting</p>
-  <h2 class="section-title">Target Product Companies</h2>
-  <p class="companies-intro">These product-based companies are strong matches for your ML engineering background — they use Python-heavy ML stacks, invest in recommendation systems, and hire for roles that align with your end-to-end ML + deployment skill set.</p>
-  <div class="company-grid">
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-a">A</div>
-        <div><div class="company-name">Amazon / AWS</div><div class="company-role">ML Engineer · Applied Scientist</div></div>
-      </div>
-      <div class="company-why">AWS ML services team & Amazon personalization — directly aligned with recommendation systems and your AWS deployment skills.</div>
-      <div class="company-match">
-        <span class="match-pill">AWS</span><span class="match-pill">Rec. Systems</span><span class="match-pill">Python</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-g">G</div>
-        <div><div class="company-name">Google / YouTube</div><div class="company-role">ML Engineer · Data Scientist</div></div>
-      </div>
-      <div class="company-why">YouTube recommendation and Search ML teams are world-class. Strong Python + ML systems background makes you a solid candidate for associate/junior roles.</div>
-      <div class="company-match">
-        <span class="match-pill">ML Systems</span><span class="match-pill">Large Scale Data</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-m">M</div>
-        <div><div class="company-name">Microsoft</div><div class="company-role">ML Engineer · AI Engineer</div></div>
-      </div>
-      <div class="company-why">Azure ML and Bing/Copilot teams hire ML engineers with Python + API deployment skills. Great entry into enterprise AI products.</div>
-      <div class="company-match">
-        <span class="match-pill">Azure ML</span><span class="match-pill">FastAPI</span><span class="match-pill">Python</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-t">N</div>
-        <div><div class="company-name">Netflix</div><div class="company-role">ML Engineer · Rec. Systems</div></div>
-      </div>
-      <div class="company-why">Netflix is the gold standard for recommendation systems. Your movie recommendation project is directly relevant — a great portfolio talking point.</div>
-      <div class="company-match">
-        <span class="match-pill">Recommendation ML</span><span class="match-pill">Python</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-f">F</div>
-        <div><div class="company-name">Flipkart</div><div class="company-role">ML Engineer · Data Scientist</div></div>
-      </div>
-      <div class="company-why">India's leading e-commerce product company. Heavily invests in personalization, search ranking, and demand forecasting ML — great fit from Hyderabad.</div>
-      <div class="company-match">
-        <span class="match-pill">E-commerce ML</span><span class="match-pill">ETL</span><span class="match-pill">SQL</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-i">Z</div>
-        <div><div class="company-name">Zomato / Swiggy</div><div class="company-role">ML Engineer · Data Scientist</div></div>
-      </div>
-      <div class="company-why">Hyderabad-present product companies with strong ML teams working on food recommendation, ETA prediction, and fraud detection. Growing ML orgs.</div>
-      <div class="company-match">
-        <span class="match-pill">Rec. Systems</span><span class="match-pill">Python</span><span class="match-pill">Data Pipelines</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-s">S</div>
-        <div><div class="company-name">Spotify</div><div class="company-role">ML Engineer · ML Research Intern</div></div>
-      </div>
-      <div class="company-why">Spotify's Discover Weekly is powered by recommendation ML. Your project is a direct showcase. Apply for ML engineer or research engineer tracks.</div>
-      <div class="company-match">
-        <span class="match-pill">Recommendation ML</span><span class="match-pill">Python</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-w">U</div>
-        <div><div class="company-name">Uber / Ola</div><div class="company-role">ML Engineer · Applied Scientist</div></div>
-      </div>
-      <div class="company-why">Ride-hailing ML spans pricing, demand prediction, and routing. ETL pipeline and deployment skills map well to their production ML requirements.</div>
-      <div class="company-match">
-        <span class="match-pill">ETL Pipelines</span><span class="match-pill">FastAPI</span><span class="match-pill">AWS</span>
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="company-header">
-        <div class="company-avatar ca-p">P</div>
-        <div><div class="company-name">PhonePe / Razorpay</div><div class="company-role">ML Engineer · Data Scientist</div></div>
-      </div>
-      <div class="company-why">Fintech product companies building ML for fraud detection, credit scoring, and transaction anomaly detection. Great growth trajectory from Hyderabad.</div>
-      <div class="company-match">
-        <span class="match-pill">ML Systems</span><span class="match-pill">Python</span><span class="match-pill">SQL</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="contact" style="padding-bottom:70px">
-  <div class="contact-box">
-    <h2 class="contact-title">Let's connect</h2>
-    <p class="contact-sub">Open to ML Engineer roles at product companies. Available for full-time positions and project collaborations.</p>
-    <div class="contact-links">
-      <a class="contact-btn primary" href="https://www.linkedin.com/in/bhargavi-b-bb6a55219" target="_blank">LinkedIn ↗</a>
-      <a class="contact-btn" href="https://github.com/BhargaviBonthu" target="_blank">GitHub ↗</a>
-      <a class="contact-btn" href="https://github.com/BhargaviBonthu/movie-recommendation-system" target="_blank">Movie Rec. Project ↗</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  Bhargavi Bonthu · AI/ML Engineer · Hyderabad, India · 2026
-</footer>
-
+</div>
 </body>
 </html>
